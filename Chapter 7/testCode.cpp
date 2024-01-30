@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+   
+   int numWords;
+   cin >> numWords;
+   
+   vector<string> words;
+   vector<int> freqs;
+   
+   // input the words..
+   for(int i = 0; i < numWords; i++){
+      string word;
+      cin >> word;
+      // check vector
+      
+      bool found = false;
+      for(size_t j = 0; j < words.size(); j++){
+         if(words[j] == word){
+            int l;
+            l++;
+            freqs[j]++;
+            words.push_back(word);
+            
+            freqs.push_back(l);
+            found = true;
+            break;
+         }
+      }
+      // update vector
+      if(!found){
+         words.push_back(word);
+         freqs.push_back(1);
+      }
+      // cout << word;
+   }
+   for(size_t i = 0; i < words.size(); i++){
+      cout << words[i] << " - " << freqs[i] << endl;
+   }
+      
+   return 0;
+}

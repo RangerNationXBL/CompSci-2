@@ -1,6 +1,18 @@
+// Name: Chris Brown
+// Class: CompSci-2
+// Date: 01/38/2024
+
+/*
+PROMPT:
+Define a structure Student with a first name, last name, and course grade (A, B, C, D, or F). 
+Write a program that reads input in which each line has the first and last name and course grade, 
+separated by spaces. Upon reading the input, your program should print all students with grade A, 
+then all students with grade B, and so on.
+*/
+
 #include <iostream>
 #include <vector>
-#include <memory>
+#include <algorithm>
 
 struct Student{ // Structures are initially public while class is initially private
     // The variables that will be used.
@@ -30,27 +42,36 @@ void printStudent(const Student* Student){
 
 // Found a way to make it work correctly.
 
-void addStudent(std::vector<std::unique_ptr<Student>>& students){
-    std::unique_ptr<Student> newStudent = std::make_unique<Student>();
+void addStudent(std::vector<std::unique_ptr<Student> > & students){
+    std::unique_ptr<Student> newStudent(new Student());
     std::cout << "Please enter the student information (seperated by space or new line)" << std::endl;
     std::cin >> newStudent->firstName >> newStudent->lastName >> newStudent->grade;
     students.push_back(std::move(newStudent));
 }
 
+void printStudentByGrade(const std::vector<std::unique_ptr<Student> > & students, char grade){
+    for(const auto& student : students){
+        if(student->grade == grade){
+            printStudent(student.get());
+        }
+    }
+
+}
+
 int main(){
+    std::vector<std::unique_ptr<Student> > students;
 
+    char continueInput;
+    do{
+        addStudent(students);
+        std::cout << "Do you want to enter a student? (Y/N)";
+        std::cin >> continueInput;
+    }while (continueInput == 'y' || continueInput == 'Y');
+
+    for(char grade = 'A'; grade <= 'F'; grade++){
+        std::cout << "\nStudents with Grade " << grade << ":\n";
+        printStudentByGrade(students, grade);
+    }
     
-
-    std::vector<Student*> students; 
-    Student* student = new Student;
-    std::cin >> student->firstName >> student->lastName >> student->grade; 
-
-    students.push_back(student);
-
-    std::cout << student->firstName << " " << student->lastName << " " << student->grade << std::endl;
-
-    // To prevent memory leaks.
-    delete student;
-
     return 0;
 }
