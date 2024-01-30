@@ -14,8 +14,7 @@ then all students with grade B, and so on.
 #include <vector>
 #include <algorithm>
 
-struct Student{ // Structures are initially public while class is initially private
-    // The variables that will be used.
+struct Student{ 
     std::string firstName;
     std::string lastName;
     char grade;
@@ -23,24 +22,10 @@ struct Student{ // Structures are initially public while class is initially priv
 
 void printStudent(const Student* Student){
 
-    // could use (*student).firstName instead of course I use arrow notation instead.
-
     std::cout << "Student: " << Student->firstName << " " << Student->lastName << std::endl;
     std::cout << "Grade: " << Student->grade << std::endl;
 
 }
-
-// This one failed to produce the results I wanted.
-
-/* void addStudent(const std::vector<Student*> students){
-    Student* newStudent = new Student;
-    std::cout << "Please enter the student information:" << std::endl;
-    std::cin >> newStudent->firstName >> newStudent->lastName >> newStudent->grade;
-    students.push_back(newStudent);
-
-} */
-
-// Found a way to make it work correctly.
 
 void addStudent(std::vector<std::unique_ptr<Student> > & students){
     std::unique_ptr<Student> newStudent(new Student());
