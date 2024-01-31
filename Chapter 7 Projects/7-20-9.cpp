@@ -98,19 +98,14 @@ void addStudent(std::vector<std::unique_ptr<Student> >& students) {
     std::unique_ptr<Student> newStudent(new Student());
     std::cout << "Please enter the student information (separated by space): " << std::endl;
     std::cin >> newStudent->firstName >> newStudent->lastName; // >> newStudent->grade;
-
-    // expand
     std::cout << "Please enter the quiz scores (separated by space): " << std::endl;
     newStudent->quizScores.resize(10);
 
-    // loops through the quiz scores that are entered by the user and stores them in the vector
     for (int i = 0; i < NUM_QUIZZES; i++) {
         std::cin >> newStudent->quizScores[i];
     }
 
-    newStudent->grade = calculateGrade(newStudent->quizScores);
-
-    // adds the student to the list of students
+    newStudent->grade = calculateGrade(newStudent->quizScores); 
     students.push_back(std::move(newStudent));
 }
 
