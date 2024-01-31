@@ -58,13 +58,16 @@ struct Student{
  */
 void printStudent(const Student* Student) {
     std::cout << "Student: " << Student->firstName << " " << Student->lastName << std::endl;
+    std::cout << std::endl;
     std::cout << "Grade: " << Student->grade << std::endl;
+    std::cout << std::endl;
     // expand
     std::cout << "Quiz Scores: ";
+    
     for (int i = 0; i < Student->quizScores.size(); i++) {
         std::cout << Student->quizScores[i] << " ";
     }
-    //end expand
+    std::cout << std::endl;
 }
 
 /**
@@ -132,7 +135,7 @@ void printStudentByGrade(const std::vector<std::unique_ptr<Student> > & students
  * @return int always returns 0
  */
 int main() {
-    std::vector<std::unique_ptr<Student>> students;  ///< List of students.
+    std::vector<std::unique_ptr<Student> > students;  ///< List of students.
     std::unique_ptr<Student> newStudent;              ///< Temporary variable to hold new student information.
 
     char continueInput;  ///< User input to continue adding students.
@@ -145,6 +148,7 @@ int main() {
 
     for (char grade = 'A'; grade <= 'F'; grade++) {
         std::cout << "\nStudents with Grade " << grade << ":\n";
+        std::cout << std::endl;
         printStudentByGrade(students, grade);  ///< Prints all students with the specified grade.
     }
 
