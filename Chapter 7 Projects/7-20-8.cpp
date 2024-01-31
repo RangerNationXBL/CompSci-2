@@ -13,6 +13,15 @@
  * Sample Input:
  * First Name Last Name Course Grade
  * 
+ * SOURCES:
+ * https://www.geeksforgeeks.org/smart-pointers-cpp/
+ * https://www.w3schools.com/cpp/cpp_structs.asp
+ * https://www.w3schools.com/cpp/cpp_pointers.asp
+ * https://www.youtube.com/watch?v=9j5KkOC_goQ
+ * https://www.youtube.com/watch?v=eNofmKYzje4&t=3s
+ * 
+ * and of course the zybooks.
+ * 
  * USE:
  * insert student information (first name, last name, and course grade), the hit enter to show the 
  * output of the students based on their course grade.

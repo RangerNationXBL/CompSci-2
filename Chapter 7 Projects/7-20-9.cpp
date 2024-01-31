@@ -25,6 +25,15 @@
  * Run program, enter first name, last name, and scores and hit enter. The program will calculate the 
  * grade by averaging the scores by deviding the sum by the amount of scores.
  * 
+ * SOURCES:
+ * https://www.geeksforgeeks.org/smart-pointers-cpp/
+ * https://www.w3schools.com/cpp/cpp_structs.asp
+ * https://www.w3schools.com/cpp/cpp_pointers.asp
+ * https://www.youtube.com/watch?v=9j5KkOC_goQ
+ * https://www.youtube.com/watch?v=eNofmKYzje4&t=3s
+ * 
+ * and of course the zybooks.
+ * 
  * TEST DATA:
  * John Doe 90 92 88 95 87 91 89 93 94 86
  * Jane Smith 78 82 80 79 81 85 77 83 84 76
