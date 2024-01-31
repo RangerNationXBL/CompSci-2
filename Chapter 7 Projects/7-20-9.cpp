@@ -1,4 +1,4 @@
-/**
+/*
  * NAME: Christ Brown
  * CLASS: Computer Science 2
  * PROFFESSOR: Dr. Tracy Kocher

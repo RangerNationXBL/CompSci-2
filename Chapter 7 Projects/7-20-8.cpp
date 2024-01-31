@@ -1,4 +1,4 @@
-/**
+/*
  * NAME: Christ Brown
  * CLASS: Computer Science 2
  * PROFFESSOR: Dr. Tracy Kocher
@@ -16,7 +16,7 @@
  * USE:
  * insert student information (first name, last name, and course grade), the hit enter to show the 
  * output of the students based on their course grade.
- **/
+ */
 
 
 #include <iostream>
