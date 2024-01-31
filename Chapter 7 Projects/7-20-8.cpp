@@ -13,6 +13,7 @@ then all students with grade B, and so on.
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <memory>
 
 
 // Create the structure
@@ -59,6 +60,7 @@ void printStudentByGrade(const std::vector<std::unique_ptr<Student> > & students
 // Making everything work. using a loop to get input and output the data
 int main(){
     std::vector<std::unique_ptr<Student> > students;
+    std::unique_ptr<Student> newStudent;
 
     char continueInput;
     do{
