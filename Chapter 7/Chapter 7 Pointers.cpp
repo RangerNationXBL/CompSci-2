@@ -48,6 +48,8 @@ int main (){
 		cout << *(luckyNumbers + i) << " ";
 	}
 
+	
+
 }
 
 
