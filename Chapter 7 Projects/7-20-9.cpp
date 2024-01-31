@@ -8,6 +8,12 @@ Define a structure Student with a first name, last name, and course grade (A, B,
 Write a program that reads input in which each line has the first and last name and course grade, 
 separated by spaces. Upon reading the input, your program should print all students with grade A, 
 then all students with grade B, and so on.
+
+Enhance the program in Programming Project 7.20.8 so that each student has ten quiz scores. The input 
+contains the student names and quiz scores but no course grades. The program should compute the course 
+grade. If the sum of the quiz scores is at least 90, the grade is an A. If the sum is at least 80, 
+the grade is a B, and so on. Then print all students with grade A together with their individual quiz 
+scores, followed by all students with grade B, and so on.
 */
 
 #include <iostream>
@@ -59,11 +65,13 @@ void addStudent(std::vector<std::unique_ptr<Student> > & students){
     for(int i = 0; i < 10; i++){
         std::cin >> newStudent->quizScores[i];
     }
-
+    //end expand
     int totalScore = 0;
     for(int score : newStudent->quizScores){
         totalScore += score;
     }
+
+    // Checking the average score for the student.
     double averageScore = static_cast<double>(totalScore) / newStudent->quizScores.size();
     if(averageScore >= 90){
         newStudent->grade = 'A';
