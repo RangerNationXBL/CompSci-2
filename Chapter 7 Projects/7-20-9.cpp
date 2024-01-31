@@ -1,7 +1,7 @@
 /**
  * NAME: Christ Brown
  * CLASS: Computer Science 2
- * PROFFESSOR: Dr. Tracy Kochar
+ * PROFFESSOR: Dr. Tracy Kocher
  * DATE: 01/30/2024
  * 
  * PROMPT: Build
