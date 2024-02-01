@@ -42,32 +42,49 @@ struct Student{
     char grade;
 };
 
+void addStudent(std::vector<Student>& students){
+    Student student;
+    std::cout << "Enter the student information: " << std::endl;
+    std::cin >> student.firstName >> student.lastName >> student.grade;
+    students.push_back(student);
+}
+
 int main() {
 
     std::vector<Student> students;
-    char yes;
+    char continueInput;
 
     do{
         Student student;
-        std::cin >> student.firstName >> student.lastName >> student.grade;
-        students.push_back(student);
+        addStudent(students);
         std::cout << "Continue? (y/n): " << std::endl;
-        std::cin >> yes;
+        std::cin >> continueInput;
 
-    } while (char(yes) == 'y' || char(yes) == 'Y');
+    } while (continueInput == 'y' || continueInput == 'Y');
+
 
     for(char grade = 'A'; grade <= 'F'; grade++){
-        std::cout << "Students with grade " << grade << std::endl;
-        std::cout << std::endl;
+        bool hasStudentWithGrade = false;
 
         for(const Student& student : students){
             if(student.grade == grade){
-                std::cout << std::setw(10) << std::left << student.firstName 
-                << std::setw(10) << std::left << student.lastName << " Grade: " 
-                << student.grade << std::endl;
+                hasStudentWithGrade = true;
+                break;
             }
         }
+
+        if(hasStudentWithGrade){
+            std::cout << "Students with grade " << grade << ": " << std::endl;
+            std::cout << std::endl;
+
+            for(const Student& student : students){
+                if(student.grade == grade){
+                    std::cout << std::setw(10) << std::left << student.firstName 
+                    << std::setw(10) << std::left << student.lastName << std::setw(10) << std::left << student.grade << std::endl;
+                }
+            }
         std::cout << std::endl;
+        }
     }
     return 0;
     
