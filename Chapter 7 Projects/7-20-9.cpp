@@ -24,11 +24,11 @@
  * grade by averaging the scores by deviding the sum by the amount of scores.
  * 
  * SOURCES:
- * https://www.geeksforgeeks.org/smart-pointers-cpp/
- * https://www.w3schools.com/cpp/cpp_structs.asp
- * https://www.w3schools.com/cpp/cpp_pointers.asp
- * https://www.youtube.com/watch?v=9j5KkOC_goQ
- * https://www.youtube.com/watch?v=eNofmKYzje4&t=3s
+ * https://www.geeksforgeeks.org/smart-pointers-cpp/ <-- Removed smart pointers
+ * https://www.w3schools.com/cpp/cpp_structs.asp <-- Structures
+ * https://www.w3schools.com/cpp/cpp_pointers.asp <-- I will leave this but I removed pointers from it
+ * https://www.youtube.com/watch?v=9j5KkOC_goQ  <-- The videos I watched 
+ * https://www.youtube.com/watch?v=eNofmKYzje4&t=3s <-- The videos I watched
  * 
  * and of course the zybooks.
  * 
@@ -58,6 +58,7 @@ struct Student{
 };
 /**
  * @brief Computes the grade of a student based on their quiz scores.
+ * This function takes in a vector of quiz scores and returns the grade of the student.
  * 
  * @param quizScores a vector of quiz scores
  * @return the computed grade
@@ -65,8 +66,8 @@ struct Student{
 char computeGrade(std::vector<int>& quizScores){
     int sum = std::accumulate(quizScores.begin(), quizScores.end(), 0);
     double average = static_cast<double>(sum) / quizScores.size();
-    std::cout << "Average: " << average << std::endl;
-    std::cout << "Sum: " << sum << std::endl;
+    //std::cout << "Average: " << average << std::endl;
+    //std::cout << "Sum: " << sum << std::endl;
 
     if(average >= 90){return 'A';}
     else if(average >= 80){return 'B';}
@@ -74,6 +75,15 @@ char computeGrade(std::vector<int>& quizScores){
     else if(average >= 60){return 'D';}
     else {return 'F';}
 }
+/**
+ * @brief Adds a student to a vector of students.
+ * This function is used to add the students to the vector of students.
+ * 
+ * @param students a vector of students
+ * @param firstName the first name of the student
+ * @param lastName the last name of the student
+ * @param grade the grade of the student
+ */
 void addStudent(std::vector<Student>& students){
     
     Student student;
@@ -101,18 +111,32 @@ int main() {
         std::cin >> continueInput;
     }while(continueInput == 'y' || continueInput == 'Y');
 
-    for(char grade = 'A'; grade <= 'F'; grade++){
-        std::cout << "Students with grade " << grade << ": " << std::endl;
+        for(char grade = 'A'; grade <= 'F'; grade++){
+        bool hasStudentWithGrade = false;
+
         for(const Student& student : students){
             if(student.grade == grade){
-                std::cout << std::setw(10) << std::left << student.firstName << std::setw(10) << std::left << student.lastName << " ";
-                for(int score : student.quizScores){
-                    std::cout << score << " ";
-                }
-                std::cout << std::endl;
+                hasStudentWithGrade = true;
+                break;
             }
         }
+
+        if(hasStudentWithGrade){
+            std::cout << "Students with grade " << grade << ": " << std::endl;
+            std::cout << std::endl;
+
+            for(const Student& student : students){
+                if(student.grade == grade){
+                    std::cout << std::setw(10) << std::left << student.firstName 
+                    << std::setw(10) << std::left << student.lastName << " ";
+                    for(int i = 0; i < 10; i++){
+                        std::cout << student.quizScores[i] << " ";
+                    }
+                    std::cout << std::endl;
+                }
+            }
         std::cout << std::endl;
+        }
     }
     return 0;
     
