@@ -31,11 +31,10 @@ void adminFunction(){
                     std::cout << "Project " << (i + 1) << " Balance: " << projectBalances[i] << std::endl;
                 }
                 break;
+            /* more cases */
         }
     }while (toupper(adminChoice)!= 'Q');
-    {
-        /* code */
-    }
+    
     
 }
 
