@@ -1,8 +1,11 @@
 /*
- * NAME: Christ Brown
+ * NAME: Chris Brown
  * CLASS: Computer Science 2
  * PROFFESSOR: Dr. Tracy Kocher
  * DATE: 01/30/2024
+ * 
+ * PROGRAMMER: Chris Brown
+ * TESTER:
  * 
  * PROMPT: Build
  * Define a structure Student with a first name, last name, and course grade (A, B, C, D, or F). 
