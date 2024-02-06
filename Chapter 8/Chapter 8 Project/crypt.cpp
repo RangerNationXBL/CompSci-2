@@ -14,6 +14,7 @@
 */
 #include <iostream>
 #include <string>
+#include <fstream>
 
 /**
  * @brief Main function is the entry point for the program.
@@ -21,6 +22,27 @@
  * @param argc The number of arguments.
  * @param argv The arguments.
 */
+
+void processFile(const std::string& inFile, const std::string& outFile){
+    // Get the streams.
+    std::ifstream in(inFile);
+    std::ofstream out(outFile);
+
+    // Check for fstream errors.
+    if(!in.is_open()){
+        std::cerr << "Error opening input file." << std::endl;
+        return;
+    }
+    if(!out.is_open()){
+        std::cerr << "Error opening output file." << std::endl;
+        return;
+    }
+
+    // Now the files are open.
+
+
+}
+
 int main(int argc, char *argv[]){
     // Checking to see how many arguments were passed in. for this one we will need 5 at least.
     // Depends if I want to include additional functionalities in the future.
