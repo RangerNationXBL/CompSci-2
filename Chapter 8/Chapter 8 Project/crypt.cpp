@@ -16,12 +16,7 @@
 #include <string>
 #include <fstream>
 
-/**
- * @brief Main function is the entry point for the program.
- * 
- * @param argc The number of arguments.
- * @param argv The arguments.
-*/
+
 
 void processFile(const std::string& inFile, const std::string& outFile){
     // Get the streams.
@@ -56,18 +51,18 @@ int main(int argc, char *argv[]){
     }
 
     // Set the varables. I know what I need to get from the command line. That was provided.
-    std::string operation = argv[1]; // -e or -d
-    std::string key = ""; // I will set this with a for loop later.
-    std::string input_file = ""; // Input file name.
-    std::string output_file = ""; // Output file name.
+    std::string operation = argv[1];                // -e or -d
+    std::string key = "";                           // I will set this with a for loop later.
+    std::string input_file = "";                    // Input file name.
+    std::string output_file = "";                   // Output file name.
 
-    for(int i = 2; i < argc; i++){  // Starting at 2 because I check 1 in variables.
-        std::string arg = argv[i]; // Setting a variable for each condition.
+    for(int i = 2; i < argc; i++){                  // Starting at 2 because I check 1 in variables.
+        std::string arg = argv[i];                  // Setting a variable for each condition.
         if(arg.substr(0, 2) == "-k"){
-            key = arg.substr(2); // Reading 3 characters from the argument. -k = 0 and 1.
-            }else if (arg == "-e" || arg == "-d"){ // Checking to see what the operation is.
-            // Nothing to be done here, its already set.
-            }else if (input_file == ""){ // Checking to see if the input file is set.
+            key = arg.substr(2);                    // Reading 3 characters from the argument. -k = 0 and 1.
+            }else if (arg == "-e" || arg == "-d"){  // Checking to see what the operation is.
+                                                    // Nothing to be done here, its already set.
+            }else if (input_file == ""){            // Checking to see if the input file is set.
             input_file = arg;
             }else{
                 output_file = arg;
