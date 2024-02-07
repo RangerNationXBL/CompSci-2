@@ -38,8 +38,11 @@ void processFile(const std::string& inFile, const std::string& outFile){
         return;
     }
 
-    // Now the files are open.
+    // All the other stuff here
 
+    // Now the files are open. We must close them.
+    in.clear();
+    out.close();
 
 }
 
