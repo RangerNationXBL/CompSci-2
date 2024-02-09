@@ -15,10 +15,42 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <unordered_map>
 
+std::unordered_map<char, char> genCipher(const std::string& key){
+    std::unordered_map<char, char> cipher;
 
+    std::string uniqueKey = "";
+    /* Stripping the keyword of duplicate letters.*/
+    for(char c : key){
+        if(std::find(uniqueKey.begin(), uniqueKey.end(), c) == uniqueKey.end()){
+            uniqueKey += c;
+        }
+    }
 
-void processFile(const std::string& inFile, const std::string& outFile){
+    /* Append the remaining alphabet letters in reverse order. */
+    std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    std::string reAlphabet = "";
+
+    for(char c : alphabet){
+        if(uniqueKey.find(c) == std::string::npos){
+            reAlphabet += c;
+        }
+    }
+
+    std::reverse(reAlphabet.begin(), reAlphabet.end());
+
+    for(size_t i=0; i < uniqueKey.length(); i++){
+        cipher[alphabet[i]] = uniqueKey[i];
+    }
+
+    for(size_t i = 0; i < reAlphabet.length(); i++){
+        cipher[alphabet[i + uniqueKey.length()]] = reAlphabet[i];
+    }
+    return cipher;
+}
+
+void processFile(const std::string& inFile, const std::string& outFile, std::string key){
     // Get the streams.
     std::ifstream in(inFile);
     std::ofstream out(outFile);
@@ -32,6 +64,8 @@ void processFile(const std::string& inFile, const std::string& outFile){
         std::cerr << "Error opening output file." << std::endl;
         return;
     }
+
+    std::unordered_map<char, char> cipher = genCipher(key);
 
     // All the other stuff here
 
