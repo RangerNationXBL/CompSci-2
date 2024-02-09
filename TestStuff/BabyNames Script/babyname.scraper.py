@@ -1,4 +1,9 @@
-#if you use this, you will need to download, python3, requests, and bs4
+# if you use this, you will need to download, python3, requests, and bs4
+# You will also need to make adjustments if you choose a different era of data
+# This is using beautifulsoup to parse the HTML content
+# Requests is for web requests, most websites block this due to it being
+# bot by nature.
+
 import requests
 from bs4 import BeautifulSoup
 import csv
