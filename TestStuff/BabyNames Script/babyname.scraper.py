@@ -1,3 +1,4 @@
+#if you use this, you will need to download, python3, requests, and bs4
 import requests
 from bs4 import BeautifulSoup
 import csv
