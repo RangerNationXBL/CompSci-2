@@ -92,7 +92,10 @@ void processFile(const std::string& inFile, const std::string& outFile, std::str
 
 }
 
-int main(int argc, char *argv[]){
+/* Seriously.... My whole time spent placing cout to try and find the problem.. 
+    It was a misplaced pointer. char *argv[] <<---- Error was there.
+    */
+int main(int argc, char* argv[]){
     // Checking to see how many arguments were passed in. for this one we will need 5 at least.
     // Depends if I want to include additional functionalities in the future.
 
@@ -119,6 +122,7 @@ int main(int argc, char *argv[]){
                 output_file = arg;
             }
     }
+    
 
     // Error Checking.
     if(operation!= "-e" && operation!= "-d"){
@@ -138,6 +142,7 @@ int main(int argc, char *argv[]){
     processFile(input_file, output_file, key, decrypt);
 
     std::cout << "Operation has completed successfully" << std::endl;
+    std::cout << key << std::endl;
 
     return 0;
 }
