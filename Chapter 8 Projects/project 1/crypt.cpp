@@ -16,6 +16,7 @@
 #include <string>
 #include <fstream>
 #include <unordered_map>
+#include <algorithm>
 
 std::unordered_map<char, char> genCipher(const std::string& key){
     std::unordered_map<char, char> cipher;
@@ -50,7 +51,17 @@ std::unordered_map<char, char> genCipher(const std::string& key){
     return cipher;
 }
 
-void processFile(const std::string& inFile, const std::string& outFile, std::string key){
+char getKeys(const std::unordered_map<char, char>& map, char value){
+    for(const auto& pair : map){
+        if(pair.second == value){
+            return pair.first;
+        }
+    }
+    return value;
+
+}
+
+void processFile(const std::string& inFile, const std::string& outFile, std::string key, bool decrypt){
     // Get the streams.
     std::ifstream in(inFile);
     std::ofstream out(outFile);
@@ -67,10 +78,16 @@ void processFile(const std::string& inFile, const std::string& outFile, std::str
 
     std::unordered_map<char, char> cipher = genCipher(key);
 
-    // All the other stuff here
-
-    // Now the files are open. We must close them.
-    in.clear();
+    char ch;
+    while(in.get(ch)){
+        if(std::isalpha(ch)){
+            char transformed = decrypt ? cipher[ch] : getKeys(cipher, ch);
+            out << transformed;
+        }else{
+            out << ch;
+        }
+    }
+    in.close();
     out.close();
 
 }
@@ -117,8 +134,8 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    bool decrypt = operation == "-d";
-    // Function to encrypt or decrypt a message. Not implemented yet.
+    bool decrypt = (operation == "-d");
+    processFile(input_file, output_file, key, decrypt);
 
     std::cout << "Operation has completed successfully" << std::endl;
 
