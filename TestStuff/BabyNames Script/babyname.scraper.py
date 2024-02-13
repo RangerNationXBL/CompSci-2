@@ -14,7 +14,6 @@
     Requests is for web requests, most websites block this due to it being
     bot by nature.
 """
-
 import requests
 from bs4 import BeautifulSoup
 import csv
