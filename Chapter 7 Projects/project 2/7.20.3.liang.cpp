@@ -1,9 +1,20 @@
+/**
+ * FileName: 7.20.3.liang.cpp
+ * Author: Shivao Liang
+ * Date Modified: 2/12/2024
+ * Moddified By: Chris Brown
+ * Description: Reads in text from console and prints it in reverse order. -- Modified to print in the order
+ * entered and sorted by pointer array.
+ * 
+*/
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>
 #include <string>
 using namespace std;
 
+/* Added 1 function to compare ~ Chris Brown */
 bool compareStrings(const char* a, const char* b){
     return strcmp(a, b) < 0;
 }
@@ -47,6 +58,8 @@ int main() {
         }
     }
 
+    /* modifications start here ~ Chris Brown */
+
     cout << "Lines in the order they were entered: " << endl;
     for(int i = 0; i < numberOfLines; i++) {
         cout << arrayOfLines[i] << endl;
@@ -60,10 +73,13 @@ int main() {
         cout << arrayOfLines[i] << endl;
     }
 
-    cout << "\nLines in reverse order: " << endl;
+    /* Modifications End ~ Chris Brown */
+
+    /* Original output Removed. */
+    /* cout << "\nLines in reverse order: " << endl;
     for (int i = numberOfLines - 1; i >= 0; --i) {
         cout << arrayOfLines[i] << endl;
-    }
+    } */
 
     return 0;
 }
