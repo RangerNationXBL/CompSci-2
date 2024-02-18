@@ -2,15 +2,9 @@
 
 Person::Person(std::string personName) : name(personName){}
 
-/**
- * Add a friend to the list of friends
- *
- * @param p The person to add as a friend
- * @return Nothing
- */
 void Person::beFriend(Person p) {
     if (!isFriend(p)) {
-        if (friendName.empty()) {
+        if (!friendName.empty()) {
             friendName += " ";
         }
         friendName += p.get_name();
@@ -29,15 +23,10 @@ void Person::unFriend(Person p){
         friendName.erase(pos + p.get_name().length(), 1);
     }
 }
+std::string Person::get_friend_name(){ return friendName; }
 
-std::string Person::get_friend_name(){
-    return friendName;
-}
+std::string Person::get_name(){ return name; }
 
-std::string Person::get_name(){
-    return name;
-}
-
-bool Person::isFriend(Person p){
-
+bool Person::isFriend(Person p) {
+    return friendName.find(p.get_name()) != std::string::npos;
 }
