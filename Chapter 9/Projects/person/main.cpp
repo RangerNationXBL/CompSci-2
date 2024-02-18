@@ -12,7 +12,15 @@ int main(){
     alice.beFriend(charlie);
 
     cout << "Alice Friends: " << alice.get_friend_name() << endl;
-    cout << "Bool: " << alice.isFriend(bob) << endl;
+    cout << endl;
+
+    alice.unFriend(charlie);
+    cout << "Alice Removed a friend." << endl;
+    cout << endl;
+    cout << "Alice Friends: " << alice.get_friend_name() << endl;
+
+    // cout << "Bool: " << alice.isFriend(bob) << endl;
 
     return 0;
 }
+
