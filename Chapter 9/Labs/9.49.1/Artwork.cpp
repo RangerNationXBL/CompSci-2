@@ -29,4 +29,5 @@ int Artwork::GetYearCreated() const{
 //       Call the PrintInfo() function in the Artist class to print an artist's information
 void Artwork::PrintInfo() const{
     artist.PrintInfo();
+    cout << "Title: " << title << ", " << yearCreated;
 }
