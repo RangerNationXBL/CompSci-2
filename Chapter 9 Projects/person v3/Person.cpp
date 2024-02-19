@@ -1,46 +1,49 @@
-#include "Person.h"
+/*
+ * NAME: Chris Brown
+ * CLASS: Computer Science 2
+ * PROFFESSOR: Dr. Tracy Kocher
+ * DATE: 01/30/2024
+ * FILE: Person.cpp
+ * 
+ * PROMPT: Reimplement the Person class so that the collection of friends are stored
+ * in a vector.
+ */
 
+#include "Person.h"
+#include "algorithm"
+
+/* Class constructor initializes a person object with the given name. */
 Person::Person(std::string personName) : name(personName){}
 
-void Person::beFriend(Person p) {
+/* This method adds a friend to persons list of friends */
+void Person::beFriend(Person* p) {
     if (!isFriend(p)) {
-        if (!friendName.empty()) {
-            friendName += " ";
-        }
-        friendName += p.get_name();
+        friendNames.push_back(p);
     }
 }
 
-void Person::unFriend(Person p){
-    std::size_t pos = friendName.find(p.get_name());
-    if(pos != std::string::npos){
-        friendName.erase(pos, p.get_name().length());
-    }
-    if(pos > 0 && friendName[pos - 1] == ' '){
-        friendName.erase(pos - 1, 1);
-    }
-    if(pos + p.get_name().length() < friendName.length() && friendName[pos + p.get_name().length()] == ' '){
-        friendName.erase(pos + p.get_name().length(), 1);
+/* This method just unfriends that friend that is named. */
+void Person::unFriend(Person* p){
+    auto it = std::find(friendNames.begin(), friendNames.end(), p);
+    if(it != friendNames.end()){
+        friendNames.erase(it);
     }
 }
-std::string Person::get_friend_name(){ return friendName; }
 
+/* This method grabs the vector of names to be displayed later */
+std::vector<Person*> Person::get_friend_names(){
+    return friendNames;
+}
+
+/* Method to retrieve the name of the person */
 std::string Person::get_name(){ return name; }
 
-bool Person::isFriend(Person p) {
-    return friendName.find(p.get_name()) != std::string::npos;
+/* Checking to see if a person is a friend */
+bool Person::isFriend(Person* p) {
+    return std::find(friendNames.begin(), friendNames.end(), p) != friendNames.end();
 } 
 
+/* Getting the count of how many friends are in the vector */
 int Person::get_friend_count(){
-    int count = 0;
-    size_t pos = 0;
-
-    while((pos = friendName.find(' ', pos)) != std::string::npos){
-        count++;
-        pos++;
-    }
-    if(!friendName.empty()){
-        count++;
-    }
-    return count;
+    return friendNames.size();
 }
