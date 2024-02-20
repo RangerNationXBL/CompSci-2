@@ -18,4 +18,4 @@ int GVDie::GetValue() {
 // set the random number generator seed for testing
 void GVDie::SetSeed(int seed) {
 	srand(seed);
-}
+} 

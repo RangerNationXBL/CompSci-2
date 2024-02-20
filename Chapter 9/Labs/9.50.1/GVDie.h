@@ -15,4 +15,4 @@ class GVDie {
       int myValue;
 };
 
-#endif /* GVDIE_H_ */
+#endif /* GVDIE_H_ */ 
