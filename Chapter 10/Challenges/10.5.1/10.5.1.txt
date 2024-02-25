@@ -1,0 +1,4 @@
+A ForgetfulCritter can't remember its history. Everytime it tries to, only a "?" is recorded. 
+Implement a derived class from Critter whose add_history function behaves as described. Note 
+that Critter::add_history has been declared virtual so that Critter::move will call the correct 
+version of add_history when the critter is a ForgetfulCritter.

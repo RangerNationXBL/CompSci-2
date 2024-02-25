@@ -1,0 +1,6 @@
+The Critter class is a base class with some basic functionality for running simulations of different kinds of critters. 
+Critters can move, act, and remember their history. A typical simulation contains a number of critters of different types.
+In each step of the simulation, the act member function will be called on each critter.
+
+Define a class Sloth derived from Critter that simulates a sloth. Sloths alternate between eating and sleeping. 
+Add the word "eat" or "sleep" to the history each time the act function is called.

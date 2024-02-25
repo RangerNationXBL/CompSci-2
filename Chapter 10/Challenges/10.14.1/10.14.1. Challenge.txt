@@ -1,0 +1,5 @@
+Consider the given BankAccount class.
+
+Form a derived class SavingsAccount. At the end of the month, a savings account earns 0.1% interest.
+
+Not all lines are useful.

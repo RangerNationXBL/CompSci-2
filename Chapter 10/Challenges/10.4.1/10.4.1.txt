@@ -1,0 +1,3 @@
+A FastCritter moves twice as fast as a regular critter. When asked to move by n steps, it actually 
+moves by 2 * n steps. Implement a FastCritter class derived from Critter whose move function behaves 
+as described.
