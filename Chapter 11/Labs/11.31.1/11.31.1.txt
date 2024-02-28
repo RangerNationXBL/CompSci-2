@@ -1,0 +1,33 @@
+Write a recursive function called DrawTriangle() that outputs lines of '*' to form a right side up isosceles triangle. 
+Function DrawTriangle() has one parameter, an integer representing the base length of the triangle. Assume the base length 
+is always odd and less than 20. Output 9 spaces before the first '*' on the first line for correct formatting.
+
+Hint: The number of '*' increases by 2 for every line drawn.
+
+Ex: If the input of the program is:
+
+    3
+
+the function DrawTriangle() outputs:
+
+         *
+        ***
+
+Ex: If the input of the program is:
+
+    19
+
+the function DrawTriangle() outputs:
+
+             *
+            ***
+           *****
+          *******
+         *********
+        ***********
+       *************
+      ***************
+     *****************
+    *******************
+
+Note: No space is output before the first '*' on the last line when the base length is 19.
